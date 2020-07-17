@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <form name="f" th:action="@{/login}" method="post">
+            <fieldset>
+                <h3>
+                    <legent>Lütfen giriş yapın</legent>
+                </h3>
+                <div>
+                    <img th:src="@{images/login.png}">
+                </div>
+                <div style="width:65%">
+                    <table style="width:35%">
+                        <br>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" id="username" placeholder="Kullanıcı adı gir"
+                                       name="username"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="password" class="form-control" id="password" placeholder="Şifre gir"
+                                       name="password"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="submit" value="Giriş Yap" class="btn btn-primary">Giriş Yap</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div th:if="${param.error}" class="alert alert-info">
+                    Geçersiz kullanıcı adı veya şifre.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success">
+                    Çıkış yapıldı.
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>
